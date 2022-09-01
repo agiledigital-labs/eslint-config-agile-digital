@@ -6,10 +6,7 @@ module.exports = {
       sourceType: "module"
     },
     extends: [
-      "typed-fp",
-      "plugin:sonarjs/recommended",
-      "plugin:jest/recommended",
-      "plugin:prettier/recommended"
+      "agile-digital"
     ],
     env: {
       "jest/globals": true,
