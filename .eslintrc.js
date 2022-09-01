@@ -15,7 +15,14 @@ module.exports = {
       "jest/globals": true,
       es6: true
     },
-    plugins: ["jest", "sonarjs", "functional", "@typescript-eslint", "prettier", "total-functions"],
+    plugins: [
+      "jest",
+      "sonarjs",
+      "functional",
+      "@typescript-eslint",
+      "prettier",
+      "total-functions"
+    ],
     rules: {}
   };
   
