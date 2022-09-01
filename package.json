@@ -1,0 +1,50 @@
+{
+  "name": "eslint-config-agile-digital",
+  "version": "1.0.0",
+  "description": "Agile Digital's standard ESLint config",
+  "main": "dist",
+  "repository": "https://github.com/agiledigital-labs/eslint-config-agile-digital.git",
+  "author": "Daniel Nixon <dan.nixon@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-typed-fp": "^3.3.0",
+    "eslint-plugin-functional": "^4.2.2",
+    "eslint-plugin-jest": "^27.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-sonarjs": "^0.15.0",
+    "eslint-plugin-total-functions": "^6.0.0",
+    "typescript": "^4.8.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-typed-fp": "^3.3.0",
+    "eslint-plugin-functional": "^4.2.2",
+    "eslint-plugin-jest": "^27.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-sonarjs": "^0.15.0",
+    "eslint-plugin-total-functions": "^6.0.0",
+    "jest": "^29.0.1",
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.8",
+    "type-coverage": "^2.22.0",
+    "typescript": "^4.8.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src --ext .ts,.tsx",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "release": "yarn build && yarn lint && yarn type-coverage && yarn publish"
+  },
+  "typeCoverage": {
+    "atLeast": 100,
+    "strict": true,
+    "detail": true
+  }
+}
