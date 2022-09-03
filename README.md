@@ -43,7 +43,7 @@ module.exports = {
   },
   extends: [
 +  "agile-digital",
-+  "agile-digital/react", // If this is a React project 
++  "agile-digital/react", // In addition to the above if this is a React project 
   ...
   ],
   plugins: [
