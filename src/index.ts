@@ -1,4 +1,4 @@
-import { TSESLint } from "@typescript-eslint/experimental-utils";
+import type { TSESLint } from "@typescript-eslint/experimental-utils";
 
 const config: TSESLint.Linter.Config = {
   globals: {},
@@ -14,6 +14,8 @@ const config: TSESLint.Linter.Config = {
     "@typescript-eslint",
     "prettier",
     "total-functions",
+    "import",
+    "spellcheck",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -34,8 +36,12 @@ const config: TSESLint.Linter.Config = {
     "plugin:sonarjs/recommended",
     "plugin:jest/recommended",
     "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
   ],
-  rules: {},
+  rules: {
+    "spellcheck/spell-checker": ["warn"],
+  },
   settings: {},
 };
 

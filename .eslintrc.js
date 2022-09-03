@@ -18,8 +18,10 @@ module.exports = {
       "functional",
       "@typescript-eslint",
       "prettier",
-      "total-functions"
+      "total-functions",
+      "import",
     ],
-    rules: {}
+    rules: {},
+    settings: {},
   };
   
