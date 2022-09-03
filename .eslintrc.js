@@ -31,7 +31,9 @@ module.exports = {
             "sonarjs",
             "tsconfig",
             "ecma",
-            "fp"
+            "fp",
+            "a11y",
+            "jsx",
           ]
         }
       ]
