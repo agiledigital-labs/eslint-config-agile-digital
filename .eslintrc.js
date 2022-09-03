@@ -20,6 +20,7 @@ module.exports = {
       "prettier",
       "total-functions",
       "import",
+      "spellcheck",
     ],
     rules: {
       "spellcheck/spell-checker": [1,

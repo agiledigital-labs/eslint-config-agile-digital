@@ -19,6 +19,8 @@ yarn add --dev eslint-config-agile-digital \
   eslint-plugin-jest \
   eslint-plugin-prettier \
   eslint-plugin-sonarjs \
+  eslint-plugin-spellcheck \
+  eslint-plugin-import \
   typescript
 ```
 
@@ -46,7 +48,9 @@ module.exports = {
 +  "functional",
 +  "@typescript-eslint",
 +  "prettier",
-+  "total-functions"
++  "total-functions",
++  "import",
++  "spellcheck",
   ...
 ],
   rules: {
