@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-agile-digital",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Agile Digital's standard ESLint config",
   "repository": "https://github.com/agiledigital-labs/eslint-config-agile-digital.git",
   "author": "Daniel Nixon <dan.nixon@gmail.com>",
@@ -48,8 +48,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint src --ext .ts,.tsx --report-unused-disable-directives",
-    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "lint": "eslint . --ext .ts,.tsx --report-unused-disable-directives",
+    "format": "prettier --write '*.ts'",
     "release": "yarn build && yarn lint && yarn type-coverage && yarn publish"
   },
   "typeCoverage": {
