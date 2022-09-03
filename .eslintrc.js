@@ -21,7 +21,20 @@ module.exports = {
       "total-functions",
       "import",
     ],
-    rules: {},
+    rules: {
+      "spellcheck/spell-checker": [1,
+        {
+          skipWords: [
+            "globals",
+            "commonjs",
+            "sonarjs",
+            "tsconfig",
+            "ecma",
+            "fp"
+          ]
+        }
+      ]
+    },
     settings: {},
   };
   
