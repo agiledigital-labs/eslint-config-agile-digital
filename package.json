@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-agile-digital",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Agile Digital's standard ESLint config",
   "main": "dist",
   "repository": "https://github.com/agiledigital-labs/eslint-config-agile-digital.git",
