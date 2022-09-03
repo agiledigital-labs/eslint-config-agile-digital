@@ -21,6 +21,9 @@ yarn add --dev eslint-config-agile-digital \
   eslint-plugin-sonarjs \
   eslint-plugin-spellcheck \
   eslint-plugin-import \
+  eslint-plugin-react \
+  eslint-plugin-react-hooks \
+  eslint-plugin-jsx-a11y \
   typescript
 ```
 
@@ -40,6 +43,7 @@ module.exports = {
   },
   extends: [
 +  "agile-digital",
++  "agile-digital/react", // If this is a React project 
   ...
   ],
   plugins: [
@@ -51,6 +55,9 @@ module.exports = {
 +  "total-functions",
 +  "import",
 +  "spellcheck",
++  "react",
++  "react-hooks",
++  "jsx-a11y",
   ...
 ],
   rules: {
