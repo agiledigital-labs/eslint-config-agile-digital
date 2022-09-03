@@ -1491,9 +1491,9 @@ escape-string-regexp@^4.0.0:
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
 eslint-config-agile-digital@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-agile-digital/-/eslint-config-agile-digital-1.1.0.tgz#d6ef197f7e3581d55379b3b80f5c2f6933e477ec"
-  integrity sha512-ZT57FvyfUkRe+3/ojCpfrJZ9UiUdO2yyXAdLtMVAikORVCh2ZNUPfn7rJbwJp2C7MwwwTDjNZABFCSLpZMaXHQ==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-agile-digital/-/eslint-config-agile-digital-1.2.1.tgz#b0c575d8e900c55a68728e5b55e3d163ce279f54"
+  integrity sha512-t6+5fWGywni3bff33JYDG11zXs6s00UM6I3srzzv62Ql1mBo8J4xfIIbTdSb2ep++QYCBkoNzjmF0X7rexVHGw==
 
 eslint-config-prettier@^8.5.0:
   version "8.5.0"
