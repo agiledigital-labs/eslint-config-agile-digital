@@ -1,4 +1,5 @@
 # eslint-config-agile-digital
+
 Agile Digital's standard ESLint config
 
 [![Build Status](https://github.com/agiledigital-labs/eslint-config-agile-digital/actions/workflows/node.js.yml/badge.svg)](https://github.com/agiledigital-labs/eslint-config-agile-digital/actions/workflows/node.js.yml)
@@ -24,6 +25,8 @@ yarn add --dev eslint-config-agile-digital \
   eslint-plugin-react \
   eslint-plugin-react-hooks \
   eslint-plugin-jsx-a11y \
+  eslint-plugin-rxjs \
+  eslint-plugin-jasmine
   typescript
 ```
 
@@ -43,7 +46,7 @@ module.exports = {
   },
   extends: [
 +  "agile-digital",
-+  "agile-digital/react", // In addition to the above if this is a React project 
++  "agile-digital/react", // In addition to the above if this is a React project
   ...
   ],
   plugins: [
@@ -65,4 +68,38 @@ module.exports = {
   }
 };
 
+```
+
+## Usage in Angular
+
+Angular customised plugin. It is not compatible with `agile-digital` because `agile-digital` has functional plugins which do not fit Angular.
+
+1. Run `ng add @angular-eslint/schematics`
+2. Update `.eslintrc.json`
+
+```diff
+  "overrides": [
+    {
+      "files": ["*.ts"],
++     parser: "@typescript-eslint/parser",
++     parserOptions: {
++       project: "./tsconfig.json",
++       ecmaVersion: 2018,
++       sourceType: "module",
++     },
+      "extends": [
++       "agile-digital/angular"
+      ],
+     "plugins": [
++      "prettier", "rxjs", "sonarjs", "jasmine", "import"
+      ]
+    },
+    ...
+    {
+      "files": ["*.html"],
+      "extends": [
++       "agile-digital/angular-template"
+      ]
+    }
+  ]
 ```
