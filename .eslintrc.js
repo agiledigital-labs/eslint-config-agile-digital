@@ -40,5 +40,7 @@ module.exports = {
       },
     ],
   },
-  settings: {},
+  ignorePatterns: ["dist/*"],
+  settings: {
+  },
 };
