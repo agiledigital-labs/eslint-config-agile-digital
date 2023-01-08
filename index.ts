@@ -41,6 +41,10 @@ const config: TSESLint.Linter.Config = {
   ],
   rules: {
     "spellcheck/spell-checker": ["warn"],
+    "no-console": [
+      "error",
+      { allow: ["info", "warn", "error", "trace", "debug"] },
+    ],
   },
   settings: {},
 };

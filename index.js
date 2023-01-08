@@ -40,6 +40,10 @@ const config = {
     ],
     rules: {
         "spellcheck/spell-checker": ["warn"],
+        "no-console": [
+            "error",
+            { allow: ["info", "warn", "error", "trace", "debug"] },
+        ],
     },
     settings: {},
 };
