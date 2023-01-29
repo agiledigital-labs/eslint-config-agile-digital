@@ -1,5 +1,6 @@
 import type { TSESLint } from "@typescript-eslint/experimental-utils";
 
+// eslint-disable-next-line functional/prefer-immutable-types
 const config: TSESLint.Linter.Config = {
   globals: {},
   env: {
@@ -25,8 +26,6 @@ const config: TSESLint.Linter.Config = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:functional/recommended",
-    "plugin:functional/external-recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
