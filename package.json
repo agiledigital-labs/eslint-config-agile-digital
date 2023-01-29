@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-agile-digital",
-  "version": "1.6.0",
+  "version": "2.0.0",
   "description": "Agile Digital's standard ESLint config",
   "repository": "https://github.com/agiledigital-labs/eslint-config-agile-digital.git",
   "author": "Daniel Nixon <dan.nixon@gmail.com>",
@@ -27,7 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "eslint": "^8.33.0",
-    "eslint-config-agile-digital": "^1.6.0",
+    "eslint-config-agile-digital": "^2.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-typed-fp": "^4.0.1",
     "eslint-plugin-functional": "^5.0.0",

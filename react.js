@@ -1,4 +1,5 @@
 "use strict";
+// eslint-disable-next-line functional/prefer-immutable-types
 const config = {
     globals: {},
     env: {

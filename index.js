@@ -1,4 +1,5 @@
 "use strict";
+// eslint-disable-next-line functional/prefer-immutable-types
 const config = {
     globals: {},
     env: {
@@ -24,8 +25,6 @@ const config = {
     },
     extends: [
         "eslint:recommended",
-        "plugin:functional/recommended",
-        "plugin:functional/external-recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
