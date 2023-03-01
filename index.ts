@@ -44,6 +44,13 @@ const config: TSESLint.Linter.Config = {
       "error",
       { allow: ["info", "warn", "error", "trace", "debug"] },
     ],
+    "functional/no-expression-statement": [
+      "error",
+      {
+        ignorePattern: "(console.)(?=log|info|warn|debug|error|trace)",
+        ignoreVoid: false,
+      },
+    ],
   },
   settings: {},
 };
