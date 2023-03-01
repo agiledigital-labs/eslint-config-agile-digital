@@ -44,10 +44,14 @@ const config: TSESLint.Linter.Config = {
       "error",
       { allow: ["info", "warn", "error", "trace", "debug"] },
     ],
-    "functional/no-expression-statement": [
+    "functional/no-expression-statements": [
       "error",
       {
-        ignorePattern: "(console.)(?=log|info|warn|debug|error|trace)",
+        // Permit the following types of expressions to be used as statements (i.e. to have their results discarded)
+        // * console.log() and friends
+        // * React hooks (functions that start with `use`)
+        ignorePattern:
+          "(console.)(?=log|info|warn|debug|error|trace)|use[a-zA-Z]+",
         ignoreVoid: false,
       },
     ],
