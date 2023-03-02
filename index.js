@@ -49,7 +49,7 @@ const config = {
                 // Permit the following types of expressions to be used as statements (i.e. to have their results discarded)
                 // * console.log() and friends
                 // * React hooks (functions that start with `use`)
-                ignorePattern: "(console.)(?=log|info|warn|debug|error|trace)|use[a-zA-Z]+",
+                ignorePattern: "(console.)(?=log|info|warn|debug|error|trace)|^use[a-zA-Z]+",
                 ignoreVoid: false,
             },
         ],
@@ -57,7 +57,7 @@ const config = {
             "error",
             {
                 // Permit React hooks (functions that start with `use`), which often have callbacks with no parameters.
-                ignorePattern: "use[a-zA-Z]+",
+                ignorePattern: "^use[a-zA-Z]+",
             },
         ],
     },
