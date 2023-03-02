@@ -59,8 +59,7 @@ const config: TSESLint.Linter.Config = {
       "error",
       {
         // Permit React hooks (functions that start with `use`), which often have callbacks with no parameters.
-        ignorePattern:
-          "use[a-zA-Z]+",
+        ignorePattern: "use[a-zA-Z]+",
       },
     ],
   },
