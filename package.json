@@ -27,7 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "eslint": "^8.35.0",
-    "eslint-config-agile-digital": "^2.0.1",
+    "eslint-config-agile-digital": "^2.1.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-typed-fp": "^4.1.0",
     "eslint-plugin-functional": "^5.0.4",
@@ -49,8 +49,10 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --ext .ts,.tsx --report-unused-disable-directives",
-    "format": "prettier --write '*.ts'",
-    "release": "yarn build && yarn lint && yarn type-coverage && yarn publish"
+    "test-base": "eslint . --ext .ts,.tsx --report-unused-disable-directives --config index.js",
+    "test-react": "eslint . --ext .ts,.tsx --report-unused-disable-directives --config react.js",
+    "test": "$npm_execpath run test-base && $npm_execpath run test-react",
+    "release": "yarn build && yarn test && yarn lint && yarn type-coverage && yarn publish"
   },
   "typeCoverage": {
     "atLeast": 100,
