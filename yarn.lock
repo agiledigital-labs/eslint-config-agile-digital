@@ -1525,20 +1525,20 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-agile-digital@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-agile-digital/-/eslint-config-agile-digital-2.2.0.tgz#8722b73bbca4754eda7f0f022af1cd98c82cfaad"
-  integrity sha512-bCtRIoQSNSVDkDqgC4Hsv/w6ZALfVMLioo8w+E02o4JERZV4nwQEP/2D77rakQKg02p/yww3IuN5+JZZPZJOpw==
+eslint-config-agile-digital@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-agile-digital/-/eslint-config-agile-digital-2.3.0.tgz#b2298dc8d24feca305667fd764d7e1f726884c6e"
+  integrity sha512-FGk/Rg1tBQqifh64lo3jq6A8Brc7zE1PQTX6DxuM5FhEirS6IRCEKveLWTEFyzFh3aegjBNGjSigaEsFOmAuyQ==
 
 eslint-config-prettier@^8.6.0:
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.6.0.tgz#dec1d29ab728f4fa63061774e1672ac4e363d207"
   integrity sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==
 
-eslint-config-typed-fp@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-4.1.0.tgz#b7abde11d7b65f0d8db47af7d418ee9e32c94c7e"
-  integrity sha512-B6BvWQ2lbmdRevGOVfczhMm8dnRZDgnecgVsgAsGTnQw8wMNbAubLYV55U1EF8I+wl+ROeDuWiY37mpGvOfu7A==
+eslint-config-typed-fp@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-4.2.0.tgz#361493f3901c563bb7c43b9a00bf943edbdf65a3"
+  integrity sha512-zft+Ogo7KLerfylrBwHEyxPtKVNNT8CbUjpv22i4/1HkH8jQgYpyq2R4XT1zmOAGFKbU8ftDpcDHa04S1P9e/w==
 
 eslint-import-resolver-node@^0.3.7:
   version "0.3.7"
