@@ -1,4 +1,4 @@
-import type { TSESLint } from "@typescript-eslint/experimental-utils";
+import type { TSESLint } from "@typescript-eslint/utils";
 
 // eslint-disable-next-line functional/prefer-immutable-types
 const config: TSESLint.Linter.Config = {
