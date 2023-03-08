@@ -43,7 +43,7 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ["dist/*"],
+  ignorePatterns: ["dist/*", "test-fixtures/*"],
   settings: {
   },
 };

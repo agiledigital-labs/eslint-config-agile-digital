@@ -1,19 +1,5 @@
-// TODO: Allow this when it is assigned to a value whose name implies it is a hook?
-// eslint-disable-next-line functional/functional-parameters
 export const useTitle = (): string => "";
 
-// TODO: Allow this when it is assigned to a value whose name implies it is a hook?
-// eslint-disable-next-line functional/no-return-void, @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-export const useSomeSideEffect = (_input: string): void => {};
-
-// TODO: Allow this when it is defining a react element?
-// eslint-disable-next-line functional/prefer-immutable-types, functional/functional-parameters
-export const Foo = (): JSX.Element => {
-  // Note: no functional/functional-parameters error here
-  const title = useTitle();
-
-  // Note: no functional/no-expression-statements error here
-  useSomeSideEffect("test");
-
-  return <div>{title}</div>;
-};
+// Hook rules are enabled
+// eslint-disable-next-line react-hooks/rules-of-hooks
+export const title = useTitle();
