@@ -38,6 +38,7 @@ const config: TSESLint.Linter.Config = {
     "plugin:import/typescript",
   ],
   rules: {
+    "no-template-curly-in-string": ["error"],
     "spellcheck/spell-checker": ["warn"],
     "no-console": [
       "error",

@@ -7,11 +7,8 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const useTitle = () => "";
 exports.useTitle = useTitle;
 // TODO: Allow this when it is assigned to a value whose name implies it is a hook?
-// eslint-disable-next-line functional/no-return-void
-const useSomeSideEffect = (input) => {
-    // Note: no functional/no-expression-statements error here
-    console.info(input);
-};
+// eslint-disable-next-line functional/no-return-void, @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+const useSomeSideEffect = (_input) => { };
 exports.useSomeSideEffect = useSomeSideEffect;
 // TODO: Allow this when it is defining a react element?
 // eslint-disable-next-line functional/prefer-immutable-types, functional/functional-parameters

@@ -3,11 +3,8 @@
 export const useTitle = (): string => "";
 
 // TODO: Allow this when it is assigned to a value whose name implies it is a hook?
-// eslint-disable-next-line functional/no-return-void
-export const useSomeSideEffect = (input: string): void => {
-  // Note: no functional/no-expression-statements error here
-  console.info(input);
-};
+// eslint-disable-next-line functional/no-return-void, @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+export const useSomeSideEffect = (_input: string): void => {};
 
 // TODO: Allow this when it is defining a react element?
 // eslint-disable-next-line functional/prefer-immutable-types, functional/functional-parameters
