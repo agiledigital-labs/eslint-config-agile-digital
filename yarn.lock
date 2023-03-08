@@ -1526,9 +1526,9 @@ eslint-config-prettier@^8.7.0:
   resolved "https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-8.7.0.tgz"
   integrity sha512-HHVXLSlVUhMSmyW4ZzEuvjpwqamgmlfkutD53cYXLikh4pt/modINRcCIApJ84czDxM4GZInwUrromsDdTImTA==
 
-eslint-config-typed-fp@^4.4.0:
+eslint-config-typed-fp@^4.3.0:
   version "4.4.0"
-  resolved "https://registry.npmjs.org/eslint-config-typed-fp/-/eslint-config-typed-fp-4.4.0.tgz"
+  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-4.4.0.tgz#0c45a7c8943630ff294802be2d7e163dd8ae9a9c"
   integrity sha512-+rlkdxLv4tK6FOEwgVhwUHFIDHsMRnImlYSFdw9N8nfXzWW+Hag+V4T9taHrv/09v4+vFfOVxhxx1ve+a+zgKA==
 
 eslint-import-resolver-node@^0.3.7:
