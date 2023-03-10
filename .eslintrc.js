@@ -39,6 +39,7 @@ module.exports = {
           "Readonly",
           "io",
           "codec",
+          "tsx"
         ],
       },
     ],

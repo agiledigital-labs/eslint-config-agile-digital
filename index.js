@@ -53,13 +53,6 @@ const config = {
                 ignoreVoid: false,
             },
         ],
-        "functional/functional-parameters": [
-            "error",
-            {
-                // Permit React hooks (functions that start with `use`), which often have callbacks with no parameters.
-                ignorePattern: "^use[a-zA-Z]+",
-            },
-        ],
     },
     overrides: [
         {
@@ -73,6 +66,25 @@ const config = {
                 "functional/prefer-immutable-types": [
                     "error",
                     { enforcement: "ReadonlyDeep" },
+                ],
+            },
+        },
+        {
+            files: ["*.tsx"],
+            rules: {
+                "functional/functional-parameters": [
+                    "error",
+                    {
+                        enforceParameterCount: false,
+                    },
+                ],
+                // This is a common pattern in React for hooks and callbacks.
+                "functional/no-return-void": "off",
+                "functional/prefer-immutable-types": [
+                    "error",
+                    {
+                        ignoreTypePattern: ["JSX"],
+                    },
                 ],
             },
         },
