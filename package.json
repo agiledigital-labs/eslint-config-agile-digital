@@ -51,9 +51,10 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --ext .ts,.tsx --report-unused-disable-directives",
-    "test-base": "eslint ./test-fixtures/base.tsx --report-unused-disable-directives --config index.js --no-eslintrc",
+    "test-base": "eslint ./test-fixtures/base.ts --report-unused-disable-directives --config index.js --no-eslintrc",
     "test-react": "eslint ./test-fixtures/react.tsx --report-unused-disable-directives --config react.js --no-eslintrc",
-    "test": "$npm_execpath run test-base && $npm_execpath run test-react",
+    "test-base-react": "eslint ./test-fixtures/base-react.tsx --report-unused-disable-directives --config base-react.js --no-eslintrc",
+    "test": "$npm_execpath run test-base && $npm_execpath run test-react && $npm_execpath run test-base-react",
     "release": "yarn build && yarn test && yarn lint && yarn type-coverage && yarn publish"
   },
   "typeCoverage": {
