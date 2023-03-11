@@ -21,6 +21,6 @@ const myFunctionWithParam = (...args) => {
 };
 exports.myFunctionWithParam = myFunctionWithParam;
 // Note: report functional parameter and return type errors.
-// eslint-disable-next-line functional/functional-parameters, functional/no-return-void
+// eslint-disable-next-line functional/functional-parameters, functional/no-return-void, @typescript-eslint/no-empty-function
 const useFunction = () => { };
 exports.useFunction = useFunction;

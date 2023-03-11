@@ -60,6 +60,8 @@ const config: TSESLint.Linter.Config = {
     {
       files: ["*.test.ts"],
       rules: {
+        // We allow tests to interpret/execute effects
+        "total-functions/no-premature-fp-ts-effects": "off",
         "functional/no-return-void": "off",
         "functional/functional-parameters": "off",
         "functional/no-expression-statements": "off",
