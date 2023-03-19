@@ -1669,7 +1669,7 @@ eslint-plugin-spellcheck@^0.0.20:
     hunspell-spellchecker "^1.0.2"
     lodash "^4.17.15"
 
-eslint-plugin-total-functions@^7.0.5:
+eslint-plugin-total-functions@^7.0.3:
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/eslint-plugin-total-functions/-/eslint-plugin-total-functions-7.0.5.tgz#43e0048f2db2b968b140e108f85ff462d691cf71"
   integrity sha512-M0PyHqM3Xk4ueUhAdcJQNw5ZEUtfWL3WY98BNTcOkTB2mjowIRqnnmML4LAhclyK5ZMGsxU2OG511cOfM40URw==
