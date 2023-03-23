@@ -1623,7 +1623,7 @@ eslint-config-prettier@^8.8.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.8.0.tgz#bfda738d412adc917fd7b038857110efe98c9348"
   integrity sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==
 
-eslint-config-typed-fp@^5.1.0:
+eslint-config-typed-fp@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-5.1.0.tgz#94571cb4a6678fee1a84b5fe3e0771531bbb6be4"
   integrity sha512-bd7SvpNhQlIQ+xm1gc1BiWouRFOjgT8DGZEtWdDcOJaDCQ8c3pE6p599MHAhCnK3o96MUQEW8I967rK3eHSucg==
