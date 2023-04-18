@@ -15,7 +15,6 @@ const config: TSESLint.Linter.Config = {
     "prettier",
     "total-functions",
     "import",
-    "spellcheck",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -39,7 +38,6 @@ const config: TSESLint.Linter.Config = {
   ],
   rules: {
     "no-template-curly-in-string": ["error"],
-    "spellcheck/spell-checker": ["warn"],
     "no-console": [
       "error",
       { allow: ["info", "warn", "error", "trace", "debug"] },

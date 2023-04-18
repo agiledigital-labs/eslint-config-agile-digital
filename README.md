@@ -19,7 +19,6 @@ yarn add --dev eslint-config-agile-digital \
   eslint-plugin-jest \
   eslint-plugin-prettier \
   eslint-plugin-sonarjs \
-  eslint-plugin-spellcheck \
   eslint-plugin-import \
   eslint-plugin-react \
   eslint-plugin-react-hooks \
@@ -54,7 +53,6 @@ module.exports = {
 +  "prettier",
 +  "total-functions",
 +  "import",
-+  "spellcheck",
 +  "react",
 +  "react-hooks",
 +  "jsx-a11y",
