@@ -53,6 +53,7 @@ const config: TSESLint.Linter.Config = {
         ignoreVoid: false,
       },
     ],
+    curly: ["error"],
   },
   overrides: [
     {

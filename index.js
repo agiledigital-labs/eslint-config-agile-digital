@@ -51,6 +51,7 @@ const config = {
                 ignoreVoid: false,
             },
         ],
+        curly: ["error"],
     },
     overrides: [
         {
