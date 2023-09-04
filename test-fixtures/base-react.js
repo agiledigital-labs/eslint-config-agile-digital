@@ -4,7 +4,7 @@ exports.Boo = exports.Foo = exports.title = exports.useTitle = exports.useSomeSi
 const jsx_runtime_1 = require("react/jsx-runtime");
 // Note: no functional/no-return-void error.
 // Note: error on no unused vars and empty function.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const useSomeSideEffect = (_input) => { };
 exports.useSomeSideEffect = useSomeSideEffect;
 // Note: no functional/functional-parameters error

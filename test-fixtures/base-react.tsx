@@ -1,6 +1,6 @@
 // Note: no functional/no-return-void error.
 // Note: error on no unused vars and empty function.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const useSomeSideEffect = (_input: string): void => {};
 
 // Note: no functional/functional-parameters error

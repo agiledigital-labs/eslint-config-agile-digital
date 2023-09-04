@@ -47,7 +47,7 @@ const config = {
                 // Permit the following types of expressions to be used as statements (i.e. to have their results discarded)
                 // * console.log() and friends
                 // * React hooks (functions that start with `use`)
-                ignorePattern: "(console.)(?=log|info|warn|debug|error|trace)|^use[a-zA-Z]+",
+                ignoreCodePattern: "(console.)(?=log|info|warn|debug|error|trace)|^use[a-zA-Z]+",
                 ignoreVoid: false,
             },
         ],
@@ -97,32 +97,52 @@ const config = {
                 // Note: When providing custom overrides, the default ones will not be used.
                 // Be sure to include the default overrides in your custom overrides if you
                 // don't want to lose them. You can obtain them with getDefaultOverrides().
-                { name: "Map", to: "Mutable" },
-                { name: "Set", to: "Mutable" },
-                { name: "Date", to: "Mutable" },
-                { name: "URL", to: "Mutable" },
-                { name: "URLSearchParams", to: "Mutable" },
                 {
-                    name: "ReadonlyArray",
+                    type: { from: "lib", name: "Map" },
+                    to: "Mutable",
+                },
+                {
+                    type: { from: "lib", name: "Set" },
+                    to: "Mutable",
+                },
+                {
+                    type: { from: "lib", name: "Date" },
+                    to: "Mutable",
+                },
+                {
+                    type: { from: "lib", name: "URL" },
+                    to: "Mutable",
+                },
+                {
+                    type: { from: "lib", name: "URLSearchParams" },
+                    to: "Mutable",
+                },
+                {
+                    type: "ReadonlyArray",
+                    to: "Immutable",
+                    from: "ReadonlyDeep",
+                },
+                {
+                    type: "ReadonlyArray",
                     to: "Immutable",
                     from: "ReadonlyDeep",
                 },
                 {
                     // From fp-ts
                     // export interface JsonArray extends ReadonlyArray<Json> {}
-                    name: "JsonArray",
+                    type: "JsonArray",
                     to: "Immutable",
                 },
                 {
                     // From fp-ts
                     // export declare type Json = boolean | number | string | null | JsonArray | JsonRecord
-                    name: "Json",
+                    type: "Json",
                     to: "Immutable",
                 },
                 {
                     // From io-ts
                     // export interface Errors extends Array<ValidationError> {}
-                    name: "Errors",
+                    type: "Errors",
                     to: "Immutable",
                     from: "Mutable",
                 },
@@ -130,24 +150,24 @@ const config = {
                     // From io-ts
                     // A readonly codec. Not the type of the value represented by the codec. The type of the codec itself.
                     // I.e., the result of calling `T.readonly(...)`.
-                    name: "ReadonlyC",
+                    type: "ReadonlyC",
                     to: "Immutable",
                     from: "Mutable",
                 },
                 {
                     // From https://github.com/agiledigital/readonly-types
                     // TODO work out why this is being detected wrong
-                    name: "ReadonlyDate",
+                    type: "ReadonlyDate",
                     to: "Immutable",
                 },
                 {
                     // From fp-ts
-                    name: "ReadonlyNonEmptyArray",
+                    type: "ReadonlyNonEmptyArray",
                     to: "Immutable",
                 },
                 {
                     // Sigh
-                    name: "Promise",
+                    type: "Promise",
                     to: "Immutable",
                     from: "ReadonlyDeep",
                 },
