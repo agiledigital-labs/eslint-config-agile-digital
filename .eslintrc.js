@@ -5,7 +5,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  extends: ["agile-digital", "agile-digital/react"],
+  extends: ["@agiledigital", "@agiledigital/eslint-config/react"],
   env: {
     "jest/globals": true,
     es6: true,
