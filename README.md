@@ -21,9 +21,16 @@ yarn add --dev @agiledigital/eslint-config \
   eslint-plugin-prettier \
   eslint-plugin-sonarjs \
   eslint-plugin-import \
+  eslint-plugin-simple-import-sort \
+  eslint-plugin-filename-rules \
+  eslint-plugin-jsdoc \
+  eslint-plugin-tsdoc \
+  eslint-plugin-no-secrets \
+  eslint-plugin-prefer-arrow-functions \
   eslint-plugin-react \
   eslint-plugin-react-hooks \
   eslint-plugin-jsx-a11y \
+  eslint-plugin-react-refresh \
   typescript
 ```
 

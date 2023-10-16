@@ -9,7 +9,7 @@ const config = {
         browser: true,
     },
     overrides: [],
-    plugins: ["react", "react-hooks", "jsx-a11y"],
+    plugins: [],
     parser: "@typescript-eslint/parser",
     parserOptions: {
         project: "./tsconfig.json",
