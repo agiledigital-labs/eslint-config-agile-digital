@@ -44,7 +44,7 @@ module.exports = {
   },
   extends: [
 +  "@agiledigital",
-+  "@agiledigital/react", // In addition to the above if this is a React project 
++  "@agiledigital/eslint-config/react", // In addition to the above if this is a React project 
   ...
   ],
   rules: {
