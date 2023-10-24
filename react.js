@@ -23,34 +23,6 @@ const config = {
         "plugin:jsx-a11y/recommended",
     ],
     rules: {
-        "@typescript-eslint/naming-convention": [
-            "warn",
-            {
-                selector: "default",
-                format: ["camelCase"],
-                leadingUnderscore: "allow",
-            },
-            {
-                selector: "variable",
-                // Need to allow PascalCase for React components
-                format: ["PascalCase", "camelCase", "UPPER_CASE"],
-                leadingUnderscore: "allow",
-            },
-            {
-                selector: "parameter",
-                format: ["camelCase"],
-                leadingUnderscore: "allow",
-            },
-            {
-                selector: "property",
-                format: null,
-                leadingUnderscore: "allow",
-            },
-            {
-                selector: "typeLike",
-                format: ["PascalCase"],
-            },
-        ],
         "react/prefer-stateless-function": "error",
         "react/button-has-type": "error",
         "react/jsx-pascal-case": "error",

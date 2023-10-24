@@ -45,6 +45,7 @@ const config: TSESLint.Linter.Config = {
     "plugin:import/typescript",
     "plugin:jsdoc/recommended-typescript",
   ],
+  reportUnusedDisableDirectives: true,
   rules: {
     "no-template-curly-in-string": ["error"],
     "no-console": [
@@ -63,11 +64,11 @@ const config: TSESLint.Linter.Config = {
       },
     ],
     curly: ["error"],
-    eqeqeq: ["error", "smart"],
+    eqeqeq: ["error", "always"],
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
     "no-alert": "error",
+    "no-implicit-coercion": "error",
     "object-shorthand": "warn",
-    "no-implicit-coercion": "warn",
     "prefer-template": "warn",
 
     "@typescript-eslint/prefer-nullish-coalescing": "error",
@@ -257,6 +258,35 @@ const config: TSESLint.Linter.Config = {
           "error",
           {
             ignoreTypePattern: ["JSX"],
+          },
+        ],
+
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            selector: "default",
+            format: ["camelCase"],
+            leadingUnderscore: "allow",
+          },
+          {
+            selector: "variable",
+            // Need to allow PascalCase for React components
+            format: ["PascalCase", "camelCase", "UPPER_CASE"],
+            leadingUnderscore: "allow",
+          },
+          {
+            selector: "parameter",
+            format: ["camelCase"],
+            leadingUnderscore: "allow",
+          },
+          {
+            selector: "property",
+            format: null,
+            leadingUnderscore: "allow",
+          },
+          {
+            selector: "typeLike",
+            format: ["PascalCase"],
           },
         ],
       },

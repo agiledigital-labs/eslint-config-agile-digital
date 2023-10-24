@@ -7,20 +7,20 @@ console.info("hello");
 // eslint-disable-next-line no-console
 console.log("not good");
 // Note: no-template-curly-in-string is on
-// eslint-disable-next-line no-template-curly-in-string
+// eslint-disable-next-line no-template-curly-in-string, jsdoc/require-jsdoc
 exports.whoops = "${whoops}";
 // Note: report parameter requirements.
-// eslint-disable-next-line functional/functional-parameters
+// eslint-disable-next-line functional/functional-parameters, jsdoc/require-jsdoc
 const myFunction = () => "";
 exports.myFunction = myFunction;
 // Note: report the expected functional parameters errors.
-// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types
+// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, jsdoc/require-jsdoc
 const myFunctionWithParam = (...args) => {
     console.info(args);
     return "";
 };
 exports.myFunctionWithParam = myFunctionWithParam;
 // Note: report functional parameter and return type errors.
-// eslint-disable-next-line functional/functional-parameters, functional/no-return-void
+// eslint-disable-next-line functional/functional-parameters, functional/no-return-void, jsdoc/require-jsdoc
 const useFunction = () => { };
 exports.useFunction = useFunction;
