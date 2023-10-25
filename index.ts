@@ -190,11 +190,17 @@ const config: TSESLint.Linter.Config = {
         contexts: [
           "VariableDeclaration",
           "TSTypeAliasDeclaration",
+          "TSMethodSignature",
+          "TSInterfaceDeclaration",
           // Encourage documenting React prop types
           "TSPropertySignature",
         ],
         enableFixer: true,
       },
+    ],
+    "jsdoc/check-tag-names": [
+      "warn",
+      { definedTags: ["remarks", "privateRemarks"] },
     ],
     // tsdoc checks this syntax instead
     "jsdoc/require-hyphen-before-param-description": "off",
