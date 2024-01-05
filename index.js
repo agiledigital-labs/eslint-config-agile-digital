@@ -37,10 +37,9 @@ const config = {
     ],
     rules: {
         "no-template-curly-in-string": ["error"],
-        "no-console": [
-            "error",
-            { allow: ["info", "warn", "error", "trace", "debug"] },
-        ],
+        // In all contexts, Use a structured logger such as Pino instead.
+        // In an fp context, use an appropriate IO type.
+        "no-console": ["error"],
         "functional/no-expression-statements": [
             "error",
             {

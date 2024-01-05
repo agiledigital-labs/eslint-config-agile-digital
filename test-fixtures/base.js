@@ -1,11 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useFunction = exports.myFunctionWithParam = exports.myFunction = exports.whoops = void 0;
-// Note: no functional/no-expression-statements error here
-console.info("hello");
-// Note: error on no console log.
+// Console is forbidden
 // eslint-disable-next-line no-console
-console.log("not good");
+console.info("");
+// eslint-disable-next-line no-console
+console.log("");
+// eslint-disable-next-line no-console
+console.error("");
+// eslint-disable-next-line no-console
+console.warn("");
 // Note: no-template-curly-in-string is on
 // eslint-disable-next-line no-template-curly-in-string
 exports.whoops = "${whoops}";
@@ -14,9 +18,8 @@ exports.whoops = "${whoops}";
 const myFunction = () => "";
 exports.myFunction = myFunction;
 // Note: report the expected functional parameters errors.
-// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types
-const myFunctionWithParam = (...args) => {
-    console.info(args);
+// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, @typescript-eslint/no-unused-vars
+const myFunctionWithParam = (..._args) => {
     return "";
 };
 exports.myFunctionWithParam = myFunctionWithParam;

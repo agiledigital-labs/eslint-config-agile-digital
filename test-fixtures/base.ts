@@ -1,9 +1,12 @@
-// Note: no functional/no-expression-statements error here
-console.info("hello");
-
-// Note: error on no console log.
+// Console is forbidden
 // eslint-disable-next-line no-console
-console.log("not good");
+console.info("");
+// eslint-disable-next-line no-console
+console.log("");
+// eslint-disable-next-line no-console
+console.error("");
+// eslint-disable-next-line no-console
+console.warn("");
 
 // Note: no-template-curly-in-string is on
 // eslint-disable-next-line no-template-curly-in-string
@@ -14,9 +17,8 @@ export const whoops = "${whoops}";
 export const myFunction = (): string => "";
 
 // Note: report the expected functional parameters errors.
-// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types
-export const myFunctionWithParam = (...args: string[]): string => {
-  console.info(args);
+// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, @typescript-eslint/no-unused-vars
+export const myFunctionWithParam = (..._args: string[]): string => {
   return "";
 };
 
