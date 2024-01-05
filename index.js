@@ -93,6 +93,7 @@ const config = {
             {
                 allowShortCircuit: true,
                 allowTernary: true,
+                enforceForJSX: true,
             },
         ],
         "@typescript-eslint/no-floating-promises": [

@@ -96,6 +96,7 @@ const config: TSESLint.Linter.Config = {
       {
         allowShortCircuit: true,
         allowTernary: true,
+        enforceForJSX: true,
       },
     ],
     "@typescript-eslint/no-floating-promises": [
