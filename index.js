@@ -40,6 +40,20 @@ const config = {
         // In all contexts, Use a structured logger such as Pino instead.
         // In an fp context, use an appropriate IO type.
         "no-console": ["error"],
+        // Encourage use of https://github.com/agiledigital-labs/pino-redact-pii
+        "no-restricted-properties": [
+            "error",
+            {
+                object: "JSON",
+                property: "stringify",
+                message: "Use a safe stringify alterative",
+            },
+            {
+                object: "util",
+                property: "inspect",
+                message: "Use a safe stringify alterative",
+            },
+        ],
         "functional/no-expression-statements": [
             "error",
             {
