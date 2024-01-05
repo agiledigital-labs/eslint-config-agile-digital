@@ -37,7 +37,7 @@ const config = {
     ],
     rules: {
         "no-template-curly-in-string": ["error"],
-        // In all contexts, Use a structured logger such as Pino instead.
+        // In all contexts, use a structured logger such as Pino instead.
         // In an fp context, use an appropriate IO type.
         "no-console": ["error"],
         // Encourage use of https://github.com/agiledigital-labs/pino-redact-pii
