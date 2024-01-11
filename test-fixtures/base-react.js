@@ -25,7 +25,7 @@ const Foo = () => {
 exports.Foo = Foo;
 // Note: no functional/functional-parameters error here
 // Note: Report functional immutable type error if JSX.Element return type is not explicitly specified.
-// eslint-disable-next-line functional/prefer-immutable-types
+// Note: functional/prefer-immutable-types should not be triggered (it is disabled until library issue is resolved)
 const Boo = () => {
     return (0, jsx_runtime_1.jsx)("div", {});
 };

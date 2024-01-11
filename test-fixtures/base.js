@@ -14,7 +14,7 @@ console.warn("");
 // eslint-disable-next-line no-restricted-properties
 exports.a = JSON.stringify("");
 // NB JSON.stringify is not detected when accessed via an alias.
-// eslint-disable-next-line functional/prefer-immutable-types
+// Note: functional/prefer-immutable-types should not be triggered (it is disabled until library issue is resolved)
 const JSONAlias = JSON;
 exports.b = JSONAlias.stringify("");
 // Note: no-template-curly-in-string is on
@@ -25,7 +25,7 @@ exports.whoops = "${whoops}";
 const myFunction = () => "";
 exports.myFunction = myFunction;
 // Note: report the expected functional parameters errors.
-// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, @typescript-eslint/no-unused-vars
+// eslint-disable-next-line functional/functional-parameters, @typescript-eslint/no-unused-vars
 const myFunctionWithParam = (..._args) => {
     return "";
 };
