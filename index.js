@@ -65,6 +65,7 @@ const config = {
             },
         ],
         curly: ["error"],
+        "functional/prefer-immutable-types": "off",
     },
     overrides: [
         {
@@ -77,10 +78,6 @@ const config = {
                 "functional/no-expression-statements": "off",
                 "functional/no-throw-statements": "off",
                 "functional/no-conditional-statements": "off",
-                "functional/prefer-immutable-types": [
-                    "error",
-                    { enforcement: "ReadonlyDeep" },
-                ],
             },
         },
         {
@@ -94,12 +91,6 @@ const config = {
                 ],
                 // This is a common pattern in React for hooks and callbacks.
                 "functional/no-return-void": "off",
-                "functional/prefer-immutable-types": [
-                    "error",
-                    {
-                        ignoreTypePattern: ["JSX"],
-                    },
-                ],
             },
         },
     ],

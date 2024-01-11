@@ -13,7 +13,7 @@ console.warn("");
 export const a = JSON.stringify("");
 
 // NB JSON.stringify is not detected when accessed via an alias.
-// eslint-disable-next-line functional/prefer-immutable-types
+// Note: functional/prefer-immutable-types should not be triggered (it is disabled until library issue is resolved)
 const JSONAlias = JSON;
 export const b = JSONAlias.stringify("");
 
@@ -26,7 +26,7 @@ export const whoops = "${whoops}";
 export const myFunction = (): string => "";
 
 // Note: report the expected functional parameters errors.
-// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, @typescript-eslint/no-unused-vars
+// eslint-disable-next-line functional/functional-parameters, @typescript-eslint/no-unused-vars
 export const myFunctionWithParam = (..._args: string[]): string => {
   return "";
 };
