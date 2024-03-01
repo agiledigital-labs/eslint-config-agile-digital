@@ -2,10 +2,12 @@ import type { TSESLint } from "@typescript-eslint/utils";
 
 // eslint-disable-next-line functional/prefer-immutable-types
 const config: TSESLint.Linter.Config = {
+  root: true,
   globals: {},
   env: {
     commonjs: true,
     es6: true,
+    "jest/globals": true,
   },
   plugins: [
     "jest",
@@ -15,6 +17,12 @@ const config: TSESLint.Linter.Config = {
     "prettier",
     "total-functions",
     "import",
+    "prefer-arrow-functions",
+    "simple-import-sort",
+    "filename-rules",
+    "jsdoc",
+    "eslint-plugin-tsdoc",
+    "no-secrets",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -35,7 +43,9 @@ const config: TSESLint.Linter.Config = {
     "plugin:prettier/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:jsdoc/recommended-typescript",
   ],
+  reportUnusedDisableDirectives: true,
   rules: {
     "no-template-curly-in-string": ["error"],
     // In all contexts, use a structured logger such as Pino instead.
@@ -67,10 +77,177 @@ const config: TSESLint.Linter.Config = {
       },
     ],
     curly: ["error"],
+    eqeqeq: ["error", "always"],
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
+    "no-alert": "error",
+    "no-implicit-coercion": "error",
+    "object-shorthand": "warn",
+    "prefer-template": "warn",
+
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-expect-error": "allow-with-description",
+        "ts-ignore": true,
+        "ts-nocheck": true,
+        "ts-check": false,
+        minimumDescriptionLength: 3,
+      },
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        argsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_",
+      },
+    ],
+    "@typescript-eslint/consistent-indexed-object-style": ["error", "record"],
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        enforceForJSX: true,
+      },
+    ],
+    "@typescript-eslint/no-floating-promises": [
+      "error",
+      { ignoreVoid: true, ignoreIIFE: true },
+    ],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: {
+          arguments: false,
+          attributes: false,
+        },
+      },
+    ],
+    "@typescript-eslint/no-unnecessary-type-arguments": "error",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        selector: "default",
+        format: ["camelCase"],
+        leadingUnderscore: "allow",
+      },
+      {
+        selector: "variable",
+        format: ["camelCase", "UPPER_CASE"],
+        leadingUnderscore: "allow",
+      },
+      {
+        selector: "parameter",
+        format: ["camelCase"],
+        leadingUnderscore: "allow",
+      },
+      {
+        selector: "property",
+        format: null,
+        leadingUnderscore: "allow",
+      },
+      {
+        selector: "typeLike",
+        format: ["PascalCase"],
+      },
+    ],
+    "@typescript-eslint/padding-line-between-statements": [
+      "warn",
+      {
+        blankLine: "always",
+        prev: "*",
+        next: [
+          "function",
+          "interface",
+          "type",
+          "try",
+          "throw",
+          "case",
+          "default",
+        ],
+      },
+    ],
+
+    "import/no-extraneous-dependencies": [
+      "error",
+      // allow devDependencies to be imported into testing files, etc.
+      { devDependencies: ["**/*.{test,spec,story,stories}.{ts,tsx}"] },
+    ],
+    "import/no-default-export": "error",
+
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+
+    "jsdoc/require-throws": "error",
+    "jsdoc/check-indentation": "warn",
+    "jsdoc/no-blank-blocks": "warn",
+    "jsdoc/require-asterisk-prefix": "warn",
+    "jsdoc/require-description": "warn",
+    "jsdoc/sort-tags": "warn",
+    "jsdoc/check-syntax": "warn",
+    "jsdoc/tag-lines": ["warn", "never", { startLines: 1 }],
+    "jsdoc/require-param": ["warn", { checkDestructuredRoots: false }],
+    "jsdoc/require-jsdoc": [
+      "warn",
+      {
+        publicOnly: true,
+        require: {
+          FunctionDeclaration: true,
+          FunctionExpression: true,
+          ArrowFunctionExpression: true,
+          ClassDeclaration: true,
+          ClassExpression: true,
+          MethodDefinition: true,
+        },
+        contexts: [
+          "VariableDeclaration",
+          "TSTypeAliasDeclaration",
+          "TSMethodSignature",
+          "TSInterfaceDeclaration",
+          // Encourage documenting React prop types
+          "TSPropertySignature",
+        ],
+        enableFixer: true,
+      },
+    ],
+    "jsdoc/check-tag-names": [
+      "warn",
+      { definedTags: ["remarks", "privateRemarks"] },
+    ],
+    // tsdoc checks this syntax instead
+    "jsdoc/require-hyphen-before-param-description": "off",
+    "jsdoc/require-returns": "off",
+
+    "tsdoc/syntax": "warn",
+
+    "prefer-arrow-functions/prefer-arrow-functions": [
+      "warn",
+      {
+        classPropertiesAllowed: true,
+        disallowPrototype: true,
+        returnStyle: "unchanged",
+      },
+    ],
+    "arrow-body-style": "warn",
+    "prefer-arrow-callback": [
+      "warn",
+      {
+        allowNamedFunctions: true,
+      },
+    ],
+
+    "filename-rules/match": [2, { ".ts": "camelcase", ".tsx": "pascalcase" }],
+
+    "no-secrets/no-secrets": [
+      "error",
+      { ignoreContent: "https", tolerance: 4.2 },
+    ],
   },
   overrides: [
     {
-      files: ["*.test.ts"],
+      files: ["*.test.{ts,tsx}"],
       rules: {
         // We allow tests to interpret/execute effects
         "total-functions/no-premature-fp-ts-effects": "off",
@@ -83,6 +260,7 @@ const config: TSESLint.Linter.Config = {
           "error",
           { enforcement: "ReadonlyDeep" },
         ],
+        "@typescript-eslint/no-floating-promises": "off",
       },
     },
     {
@@ -100,6 +278,35 @@ const config: TSESLint.Linter.Config = {
           "error",
           {
             ignoreTypePattern: ["JSX"],
+          },
+        ],
+
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            selector: "default",
+            format: ["camelCase"],
+            leadingUnderscore: "allow",
+          },
+          {
+            selector: "variable",
+            // Need to allow PascalCase for React components
+            format: ["PascalCase", "camelCase", "UPPER_CASE"],
+            leadingUnderscore: "allow",
+          },
+          {
+            selector: "parameter",
+            format: ["camelCase"],
+            leadingUnderscore: "allow",
+          },
+          {
+            selector: "property",
+            format: null,
+            leadingUnderscore: "allow",
+          },
+          {
+            selector: "typeLike",
+            format: ["PascalCase"],
           },
         ],
       },

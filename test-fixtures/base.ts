@@ -9,28 +9,27 @@ console.error("");
 console.warn("");
 
 // error  'JSON.stringify' is restricted from being used. Use a safe stringify alterative
-// eslint-disable-next-line no-restricted-properties
+// eslint-disable-next-line no-restricted-properties, jsdoc/require-jsdoc
 export const a = JSON.stringify("");
 
 // NB JSON.stringify is not detected when accessed via an alias.
-// eslint-disable-next-line functional/prefer-immutable-types
+// eslint-disable-next-line functional/prefer-immutable-types, @typescript-eslint/naming-convention
 const JSONAlias = JSON;
+// eslint-disable-next-line jsdoc/require-jsdoc
 export const b = JSONAlias.stringify("");
 
 // Note: no-template-curly-in-string is on
-// eslint-disable-next-line no-template-curly-in-string
+// eslint-disable-next-line no-template-curly-in-string, jsdoc/require-jsdoc
 export const whoops = "${whoops}";
 
 // Note: report parameter requirements.
-// eslint-disable-next-line functional/functional-parameters
+// eslint-disable-next-line functional/functional-parameters, jsdoc/require-jsdoc
 export const myFunction = (): string => "";
 
 // Note: report the expected functional parameters errors.
-// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, @typescript-eslint/no-unused-vars
-export const myFunctionWithParam = (..._args: string[]): string => {
-  return "";
-};
+// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, jsdoc/require-jsdoc
+export const myFunctionWithParam = (..._args: string[]): string => "";
 
 // Note: report functional parameter and return type errors.
-// eslint-disable-next-line functional/functional-parameters, functional/no-return-void
+// eslint-disable-next-line functional/functional-parameters, functional/no-return-void, jsdoc/require-jsdoc
 export const useFunction = (): void => {};
