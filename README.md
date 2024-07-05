@@ -11,16 +11,15 @@ Agile Digital's standard ESLint config
 
 ```sh
 yarn add --dev @agiledigital/eslint-config \
-  eslint-config-typed-fp \
-  @typescript-eslint/eslint-plugin \
-  @typescript-eslint/parser \
+  @eslint/compat \
+  @eslint/eslintrc \
+  typescript-eslint \
   eslint \
   eslint-plugin-functional \
-  eslint-plugin-total-functions \
   eslint-plugin-jest \
   eslint-plugin-prettier \
   eslint-plugin-sonarjs \
-  eslint-plugin-import \
+  eslint-plugin-import-x \
   eslint-plugin-simple-import-sort \
   eslint-plugin-filename-rules \
   eslint-plugin-jsdoc \

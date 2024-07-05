@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.useFunction = exports.myFunctionWithParam = exports.myFunction = exports.whoops = exports.b = exports.a = void 0;
 // Console is forbidden
 // eslint-disable-next-line no-console
 console.info("");
@@ -11,26 +8,22 @@ console.error("");
 // eslint-disable-next-line no-console
 console.warn("");
 // error  'JSON.stringify' is restricted from being used. Use a safe stringify alterative
-// eslint-disable-next-line no-restricted-properties
-exports.a = JSON.stringify("");
+// eslint-disable-next-line no-restricted-properties, jsdoc/require-jsdoc
+export const a = JSON.stringify("");
 // NB JSON.stringify is not detected when accessed via an alias.
-// eslint-disable-next-line functional/prefer-immutable-types
+// eslint-disable-next-line functional/prefer-immutable-types, @typescript-eslint/naming-convention
 const JSONAlias = JSON;
-exports.b = JSONAlias.stringify("");
+// eslint-disable-next-line jsdoc/require-jsdoc
+export const b = JSONAlias.stringify("");
 // Note: no-template-curly-in-string is on
 // eslint-disable-next-line no-template-curly-in-string, jsdoc/require-jsdoc
-exports.whoops = "${whoops}";
+export const whoops = "${whoops}";
 // Note: report parameter requirements.
 // eslint-disable-next-line functional/functional-parameters, jsdoc/require-jsdoc
-const myFunction = () => "";
-exports.myFunction = myFunction;
+export const myFunction = () => "";
 // Note: report the expected functional parameters errors.
-// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, @typescript-eslint/no-unused-vars
-const myFunctionWithParam = (..._args) => {
-    return "";
-};
-exports.myFunctionWithParam = myFunctionWithParam;
+// eslint-disable-next-line functional/functional-parameters, functional/prefer-immutable-types, jsdoc/require-jsdoc
+export const myFunctionWithParam = (..._args) => "";
 // Note: report functional parameter and return type errors.
 // eslint-disable-next-line functional/functional-parameters, functional/no-return-void, jsdoc/require-jsdoc
-const useFunction = () => { };
-exports.useFunction = useFunction;
+export const useFunction = () => { };

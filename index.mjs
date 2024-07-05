@@ -1,50 +1,81 @@
-"use strict";
+import url from "node:url";
+import { fixupPluginRules } from "@eslint/compat";
+import { FlatCompat } from "@eslint/eslintrc";
+import eslintJs from "@eslint/js";
+// FIXME why is this rule triggered here?
+// eslint-disable-next-line import-x/no-unresolved
+import tseslint from "typescript-eslint";
+// FIXME why is this rule triggered here?
+// eslint-disable-next-line import-x/no-unresolved
+import functionalPlugin from "eslint-plugin-functional/flat";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import jsdoc from "eslint-plugin-jsdoc";
+// @ts-expect-error FIXME eslint-plugin-jest needs type definitions
+import jest from "eslint-plugin-jest";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import sonarjs from "eslint-plugin-sonarjs";
+// @ts-expect-error FIXME eslint-plugin-no-secrets needs type definitions
+import noSecrets from "eslint-plugin-no-secrets";
+import importX from "eslint-plugin-import-x";
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 // eslint-disable-next-line functional/prefer-immutable-types
-const config = {
-    root: true,
-    globals: {},
-    env: {
-        commonjs: true,
-        es6: true,
-        "jest/globals": true,
+const compat = new FlatCompat({ baseDirectory: __dirname });
+/**
+ * @param name the plugin name
+ * @param alias the plugin alias
+ * @returns the plugin
+ * @see https://github.com/import-js/eslint-plugin-import/issues/2948#issuecomment-2148832701
+ */
+// eslint-disable-next-line functional/prefer-immutable-types
+const legacyPlugin = (name, alias = name) => {
+    // eslint-disable-next-line functional/prefer-immutable-types
+    const plugin = compat.plugins(name)[0]?.plugins?.[alias];
+    // eslint-disable-next-line functional/no-conditional-statements
+    if (plugin === undefined) {
+        // eslint-disable-next-line functional/no-throw-statements
+        throw new Error(`Unable to resolve plugin [${name}] and/or alias [${alias}].`);
+    }
+    return fixupPluginRules(plugin);
+};
+// eslint-disable-next-line functional/prefer-immutable-types
+const config = tseslint.config(eslintJs.configs.recommended, tseslint.configs.eslintRecommended, ...tseslint.configs.strictTypeChecked, functionalPlugin.configs.strict, jsdoc.configs["flat/recommended"], 
+// FIXME eslint-plugin-jest needs type definitions
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+jest.configs["flat/recommended"], sonarjs.configs.recommended, ...compat.extends("plugin:import-x/recommended", "plugin:import-x/typescript"), 
+// This must come last. See https://github.com/prettier/eslint-plugin-prettier
+eslintPluginPrettierRecommended, {
+    linterOptions: {
+        reportUnusedDisableDirectives: true,
     },
-    plugins: [
-        "jest",
-        "sonarjs",
-        "functional",
-        "@typescript-eslint",
-        "prettier",
-        "total-functions",
-        "import",
-        "prefer-arrow-functions",
-        "simple-import-sort",
-        "filename-rules",
-        "jsdoc",
-        "eslint-plugin-tsdoc",
-        "no-secrets",
-    ],
-    parser: "@typescript-eslint/parser",
-    parserOptions: {
-        project: "./tsconfig.json",
-        ecmaVersion: 2018,
-        sourceType: "module",
+    languageOptions: {
+        globals: {
+            "jest/globals": true,
+            es6: true,
+        },
+        // See https://typescript-eslint.io/getting-started/typed-linting
+        parserOptions: {
+            project: "tsconfig.json",
+            tsconfigRootDir: __dirname,
+        },
     },
-    extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:@typescript-eslint/strict",
-        "plugin:total-functions/recommended",
-        "typed-fp",
-        "plugin:sonarjs/recommended",
-        "plugin:jest/recommended",
-        "plugin:prettier/recommended",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
-        "plugin:jsdoc/recommended-typescript",
-    ],
-    reportUnusedDisableDirectives: true,
+    plugins: {
+        "@functional": functionalPlugin,
+        "@typescript-eslint": tseslint.plugin,
+        "simple-import-sort": simpleImportSort,
+        jsdoc,
+        tsdoc: legacyPlugin("eslint-plugin-tsdoc", "tsdoc"),
+        // FIXME: make sure we've included the recommended config
+        "prefer-arrow-functions": legacyPlugin("eslint-plugin-prefer-arrow-functions", "prefer-arrow-functions"),
+        // FIXME: make sure we've included the recommended config
+        "filename-rules": legacyPlugin("eslint-plugin-filename-rules", "filename-rules"),
+        // FIXME eslint-plugin-jest needs type definitions
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        jest,
+        // FIXME eslint-plugin-no-secrets needs type definitions
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        "no-secrets": noSecrets,
+        "import-x": importX,
+    },
     rules: {
         "no-template-curly-in-string": ["error"],
         // In all contexts, use a structured logger such as Pino instead.
@@ -166,12 +197,12 @@ const config = {
                 ],
             },
         ],
-        "import/no-extraneous-dependencies": [
+        "import-x/no-extraneous-dependencies": [
             "error",
             // allow devDependencies to be imported into testing files, etc.
             { devDependencies: ["**/*.{test,spec,story,stories}.{ts,tsx}"] },
         ],
-        "import/no-default-export": "error",
+        "import-x/no-default-export": "error",
         "simple-import-sort/imports": "warn",
         "simple-import-sort/exports": "warn",
         "jsdoc/require-throws": "error",
@@ -229,78 +260,15 @@ const config = {
                 allowNamedFunctions: true,
             },
         ],
-        "filename-rules/match": [2, { ".ts": "camelcase", ".tsx": "pascalcase" }],
+        // FIXME: unmaintained package. remove? This rule fails with the following error:
+        // > Error: Key "rules": Key "filename-rules/match":
+        // >   Value [{".ts":"camelcase",".tsx":"pascalcase"}] should NOT have more than 0 items.
+        // "filename-rules/match": [2, { ".ts": "camelcase", ".tsx": "pascalcase" }],
         "no-secrets/no-secrets": [
             "error",
             { ignoreContent: "https", tolerance: 4.2 },
         ],
     },
-    overrides: [
-        {
-            files: ["*.test.{ts,tsx}"],
-            rules: {
-                // We allow tests to interpret/execute effects
-                "total-functions/no-premature-fp-ts-effects": "off",
-                "functional/no-return-void": "off",
-                "functional/functional-parameters": "off",
-                "functional/no-expression-statements": "off",
-                "functional/no-throw-statements": "off",
-                "functional/no-conditional-statements": "off",
-                "functional/prefer-immutable-types": [
-                    "error",
-                    { enforcement: "ReadonlyDeep" },
-                ],
-                "@typescript-eslint/no-floating-promises": "off",
-            },
-        },
-        {
-            files: ["*.tsx"],
-            rules: {
-                "functional/functional-parameters": [
-                    "error",
-                    {
-                        enforceParameterCount: false,
-                    },
-                ],
-                // This is a common pattern in React for hooks and callbacks.
-                "functional/no-return-void": "off",
-                "functional/prefer-immutable-types": [
-                    "error",
-                    {
-                        ignoreTypePattern: ["JSX"],
-                    },
-                ],
-                "@typescript-eslint/naming-convention": [
-                    "warn",
-                    {
-                        selector: "default",
-                        format: ["camelCase"],
-                        leadingUnderscore: "allow",
-                    },
-                    {
-                        selector: "variable",
-                        // Need to allow PascalCase for React components
-                        format: ["PascalCase", "camelCase", "UPPER_CASE"],
-                        leadingUnderscore: "allow",
-                    },
-                    {
-                        selector: "parameter",
-                        format: ["camelCase"],
-                        leadingUnderscore: "allow",
-                    },
-                    {
-                        selector: "property",
-                        format: null,
-                        leadingUnderscore: "allow",
-                    },
-                    {
-                        selector: "typeLike",
-                        format: ["PascalCase"],
-                    },
-                ],
-            },
-        },
-    ],
     settings: {
         immutability: {
             overrides: [
@@ -385,5 +353,70 @@ const config = {
             ],
         },
     },
-};
-module.exports = config;
+}, 
+// Formerly overrides
+// see https://eslint.org/docs/latest/use/configure/migration-guide#glob-based-configs (maybe)
+{
+    files: ["*.test.{ts,tsx}"],
+    rules: {
+        // We allow tests to interpret/execute effects
+        "total-functions/no-premature-fp-ts-effects": "off",
+        "functional/no-return-void": "off",
+        "functional/functional-parameters": "off",
+        "functional/no-expression-statements": "off",
+        "functional/no-throw-statements": "off",
+        "functional/no-conditional-statements": "off",
+        "functional/prefer-immutable-types": [
+            "error",
+            { enforcement: "ReadonlyDeep" },
+        ],
+        "@typescript-eslint/no-floating-promises": "off",
+    },
+}, {
+    files: ["*.tsx"],
+    rules: {
+        "functional/functional-parameters": [
+            "error",
+            {
+                enforceParameterCount: false,
+            },
+        ],
+        // This is a common pattern in React for hooks and callbacks.
+        "functional/no-return-void": "off",
+        "functional/prefer-immutable-types": [
+            "error",
+            {
+                ignoreTypePattern: ["JSX"],
+            },
+        ],
+        "@typescript-eslint/naming-convention": [
+            "warn",
+            {
+                selector: "default",
+                format: ["camelCase"],
+                leadingUnderscore: "allow",
+            },
+            {
+                selector: "variable",
+                // Need to allow PascalCase for React components
+                format: ["PascalCase", "camelCase", "UPPER_CASE"],
+                leadingUnderscore: "allow",
+            },
+            {
+                selector: "parameter",
+                format: ["camelCase"],
+                leadingUnderscore: "allow",
+            },
+            {
+                selector: "property",
+                format: null,
+                leadingUnderscore: "allow",
+            },
+            {
+                selector: "typeLike",
+                format: ["PascalCase"],
+            },
+        ],
+    },
+});
+export default config;
