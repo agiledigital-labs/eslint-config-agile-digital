@@ -4,9 +4,9 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
     
     /* Basic Options */
-    "lib": ["esnext"],
-    "target": "ES2015",
-    "module": "CommonJS",
+    "lib": ["ES2021"],
+    "target": "ES2021",
+    "module": "Node16",
     "declaration": false,                      /* Generates corresponding '.d.ts' file. */
 
     /* Strict Type-Checking Options */
@@ -28,7 +28,7 @@
     "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
 
     /* Module Resolution Options */
-    "moduleResolution": "node",
+    "moduleResolution": "Node16",
     "esModuleInterop": true,
     
     /* Advanced Options */
